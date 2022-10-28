@@ -4,10 +4,12 @@ terraform {
     google = {
       source  = "hashicorp/google"
       version = "< 5.0, >= 4.40"
+      project = "tf-sentinel-366917"
     }
     google-beta = {
       source  = "hashicorp/google-beta"
       version = "< 5.0, >= 3.45"
+      project = "tf-sentinel-366917"
     }
   }
 
