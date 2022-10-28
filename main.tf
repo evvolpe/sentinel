@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "4.41.0"
+    }
+  }
+}
+
+provider "google" {
+  # Configuration options
+}
+
 # [START vpc_custom_create]
 module "test-vpc-module" {
   source       = "terraform-google-modules/network/google"
