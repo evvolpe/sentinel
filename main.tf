@@ -1,15 +1,15 @@
 terraform {
+  required_version = ">= 0.13.0"
   required_providers {
     google = {
-      source = "hashicorp/google"
-      version = "4.41.0"
+      source  = "hashicorp/google"
+      version = "< 5.0, >= 4.40"
+    }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "< 5.0, >= 3.45"
     }
   }
-}
-
-provider "google" {
-  # Configuration options
-}
 
 # [START vpc_custom_create]
 module "test-vpc-module" {
