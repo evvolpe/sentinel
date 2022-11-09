@@ -1,9 +1,9 @@
 # Imports mock data
 import "tfplan/v2" as tfplan
 
-# Get all AWS instances from all modules
+# Get all networks from all modules
 vpcs = filter tfplan.resource_changes as _, rc {
-    rc.type is "aws_instance" and
+    rc.type is "google_compute_network" and
         (rc.change.actions contains "create" or rc.change.actions is ["update"])
 }
 
@@ -12,30 +12,16 @@ mandatory_tags = [
     "Name",
 ]
 
-# Allowed Types
-allowed_types = [
-    "t2.micro",
-    "t2.small",
-    "t2.medium",
-]
-
-# Rule to enforce "Name" tag on all instances
+# Rule to enforce "Name" tag on all networks
 mandatory_instance_tags = rule {
-    all ec2_instances as _, instance {
+    all vpc_instances as _, vpc {
         all mandatory_tags as mt {
             instance.change.after.tags contains mt
         }
     }
 }
 
-# Rule to restrict instance types
-instance_type_allowed = rule {
-    all ec2_instances as _, instance {
-        instance.change.after.instance_type in allowed_types
-    }
-}
-
 # Main rule that requires other rules to be true
 main = rule {
-    (instance_type_allowed and mandatory_instance_tags) else true
+    (mandatory_instance_tags) else true
 }
