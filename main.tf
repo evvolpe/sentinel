@@ -8,6 +8,12 @@ terraform {
   }
 }
 
+variable "gcp_credentials_key" {
+  type = string
+  sensitive = true
+  description = "Google Cloud service account credentials"
+}
+
 terraform {
   required_providers {
     google = {
@@ -22,11 +28,6 @@ provider "google" {
 }
 provider "google-beta" {
   credentials = var.gcp_credentials_key   
-}
-variable "gcp_credentials_key" {
-  type = string
-  sensitive = true
-  description = "Google Cloud service account credentials"
 }
 
 module "network_example_multi_vpc" {
