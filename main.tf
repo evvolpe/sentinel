@@ -18,10 +18,10 @@ terraform {
 }
 
 provider "google" {
-  project_id = "tf-sentinel-366917"
+  
 }
 provider "google-beta" {
-  project_id = "tf-sentinel-366917"
+  
   
 }
 
