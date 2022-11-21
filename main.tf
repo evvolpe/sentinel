@@ -19,11 +19,11 @@ terraform {
 
 provider "google" {
   project_id = "tf-sentinel-366917"
-  credentials = ${{ secrets.GCP_CREDENTIALS }}
+  credentials = secrets.GCP_CREDENTIALS
 }
 provider "google-beta" {
   project_id = "tf-sentinel-366917"
-  credentials = ${{ secrets.GCP_CREDENTIALS }}
+  credentials = secrets.GCP_CREDENTIALS
 }
 
 module "network_example_multi_vpc" {
