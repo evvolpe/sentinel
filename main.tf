@@ -20,6 +20,9 @@ terraform {
 provider "google" {
   # Configuration options
 }
+provider "google-beta" {
+ 
+}
 
 module "network_example_multi_vpc" {
   source  = "terraform-google-modules/network/google//examples/multi_vpc"
