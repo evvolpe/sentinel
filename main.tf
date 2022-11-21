@@ -18,10 +18,12 @@ terraform {
 }
 
 provider "google" {
-  # Configuration options
+  project_id = "tf-sentinel-366917"
+  credentials = ${{ secrets.GCP_CREDENTIALS }}
 }
 provider "google-beta" {
- 
+  project_id = "tf-sentinel-366917"
+  credentials = ${{ secrets.GCP_CREDENTIALS }}
 }
 
 module "network_example_multi_vpc" {
@@ -29,5 +31,4 @@ module "network_example_multi_vpc" {
   version = "5.2.0"
   network_01_name = "rede1"
   network_02_name = "rede2"
-  project_id = "tf-sentinel-366917"
 }
