@@ -1,5 +1,5 @@
-mock "tfplan/v2" {
-  module {
-    source = "mock-tfplan-v2.sentinel"
-  }
-}
+#mock "tfplan/v2" {
+#  module {
+#    source = "mock-tfplan-v2.sentinel"
+#  }
+#}
