@@ -24,15 +24,13 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
+      - name: Terraform ls
+        id: ls
+        run: ls -ltr
         
       - name: Terraform Plan
         id: plan
         run: terraform plan
         
-        - name: Terraform ls
-        id: ls
-        run: ls -ltr
-          
-      - name: Terraform Apply
-        id: apply
-        run: terraform apply
+
+
