@@ -2,6 +2,11 @@ name: "Terraform - Sentinel"
 
 on:
   workflow_dispatch:
+    inputs:
+      projectNumber:
+        description: "Please insert yor PRJ"
+        type: "string"
+        required: True
   
 jobs:  
   terraform:
@@ -27,6 +32,10 @@ jobs:
       - name: Terraform ls
         id: ls
         run: ls -ltr
+        
+      - name: Terraform ls
+        id: echo
+        run: echo ${{ projectNumber }}
         
       - name: Terraform Plan
         id: plan
