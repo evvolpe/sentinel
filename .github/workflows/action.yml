@@ -17,6 +17,10 @@ jobs:
       - uses: google-github-actions/setup-gcloud@v0
         with:
           service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+          
+      - name: Echo
+        id: echo
+        run: echo ${{ inputs.projectNumber }}    
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -33,10 +37,7 @@ jobs:
         id: ls
         run: ls -ltr
         
-      - name: Terraform ls
-        id: echo
-        run: echo ${{ inputs.projectNumber }}
-        
+       
       - name: Terraform Plan
         id: plan
         run: terraform plan
