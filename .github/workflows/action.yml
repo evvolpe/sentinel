@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Login to GCP
-      - uses: google-github-actions/setup-gcloud@v0
-        with:
-          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+      #- uses: google-github-actions/setup-gcloud@v0
+       # with:
+        #  service_account_key: ${{ secrets.GCP_CREDENTIALS }}
           
       - name: Echo
         id: echo
