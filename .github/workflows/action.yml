@@ -35,7 +35,7 @@ jobs:
         
       - name: Terraform ls
         id: echo
-        run: echo ${{ projectNumber }}
+        run: echo ${{ inputs.projectNumber }}
         
       - name: Terraform Plan
         id: plan
